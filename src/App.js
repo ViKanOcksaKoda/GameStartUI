@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigationbar from './components/navbar/Navigationbar';
+import CarouselSlider from './components/carousel/CarouselSlider';
 import './App.css';
 
 function App() {
