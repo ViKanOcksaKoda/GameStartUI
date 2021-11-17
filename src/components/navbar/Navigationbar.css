@@ -5,10 +5,17 @@
 .navbar-container {
   margin-left: 2%;
   margin-top: 2%;
+  text-align: center;
 }
 
-.navbarDropDown {
-  margin-left: 40%;
+.me-auto {
+  margin: auto;
+}
+
+.category-link {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-left: 12%;
+  margin-right: 10%;
   font-size: 1.5rem;
 }
 
