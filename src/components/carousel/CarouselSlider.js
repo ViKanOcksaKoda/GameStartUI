@@ -15,7 +15,7 @@ const CarouselSlider = () => {
       className="d-block w-100"
       src="https://www.timarco.com/Content/images/black-friday.png"
       alt="First slide"
-      roundedCircle
+      rounded
     />
     <Carousel.Caption className="carousel-caption-blackfriday">
       <h3>BLACK FRIDAY COMING UP. </h3>
@@ -27,7 +27,7 @@ const CarouselSlider = () => {
       className="d-block w-100"
       src="https://d1lss44hh2trtw.cloudfront.net/assets/article/2020/06/08/ps5-reveal-livestream-date-possibly-leaked-by-german-twitch-ad_feature.jpg"
       alt="Second slide"
-      roundedCircle
+      rounded
     />
     <Carousel.Caption>
       <h3>Take your gaming to the next level</h3>
@@ -39,7 +39,7 @@ const CarouselSlider = () => {
       className="d-block w-100"
       src="https://i.ytimg.com/vi/O500akRES4M/maxresdefault.jpg"
       alt="Third slide"
-      roundedCircle
+      rounded
     />
     <Carousel.Caption>
       <h3>Are you ready for the biggest adventure?</h3>
