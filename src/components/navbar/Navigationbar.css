@@ -11,16 +11,37 @@
 }
 
 .me-auto {
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
   margin: auto;
+  margin-left: 30%;
+  display: flex;
 }
 
-.category-link {
+.nav-link {
   font-family: "Montserrat", sans-serif;
-  margin-left: 12%;
-  margin-right: 10%;
+  position: relative;
   font-size: 1.5rem;
+  letter-spacing: 1px;
+  padding: 0 10px;
+}
+
+.nav-link:after {
+  content: "";
+  position: absolute;
+  background-color: rgb(166, 218, 166);
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+.nav-link:hover:after {
+  width: 100%;
 }
 
 .game-start-logo {
-  width: 80%;
+  width: 100%;
 }
