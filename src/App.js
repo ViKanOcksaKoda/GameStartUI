@@ -1,15 +1,23 @@
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Navigationbar from './components/navbar/Navigationbar';
-import CarouselSlider from './components/carousel/CarouselSlider';
-import GamePage from './components/gamepage/GamePage';
+import HomePage from './components/homepage/HomePage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Navigationbar/>
-      <CarouselSlider/>
-      <GamePage/>
-    </div>
+    <Router>
+      <div className="App">
+        <Navigationbar />
+        <Routes>
+          <Route path='/' element={ <HomePage /> } />
+          {/* <Route path='/GamePage' element={ <GamePage />} />
+          <Route path='/ConsolePage' element={ <ConsolePage />} />
+          <Route path='/ControllersPage' element={ <ControllerPage />} />
+          <Route path='/AdminPage' element={ <AdminPage /> } /> */}
+        </Routes>
+      </div>
+    </Router>
+
   );
 }
 
