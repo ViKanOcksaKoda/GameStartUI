@@ -8,19 +8,19 @@ import "./Navigationbar.css";
 import GameStartLogo from "../../assets/game-start_logo.png"
 
 const Navigationbar = () => {
-    return(
-<Navbar bg="white" variant="light">
-    <Container className="navbar-container">
-    <Navbar.Brand href="#home"><img className="game-start-logo"src={GameStartLogo}/></Navbar.Brand>
-    <Nav className="me-auto">
-    <Nav.Link className="category-link" href="#games">GAMES</Nav.Link>
-    <Nav.Link className="category-link"href="#consoles">CONSOLES</Nav.Link>
-    <Nav.Link className="category-link"href="#controllers">CONTROLLERS</Nav.Link>  
-    </Nav>
-    </Container>
-    <BsCart4 className="cart-icon" size="2rem"/>
-  </Navbar>
-    );
+  return (
+    <Navbar bg="white" variant="light">
+      <Container className="navbar-container">
+        <Navbar.Brand href="/"><img className="game-start-logo" src={GameStartLogo} /></Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link className="category-link" href="/GamePage">GAMES</Nav.Link>
+          <Nav.Link className="category-link" href="/ConsolePage">CONSOLES</Nav.Link>
+          <Nav.Link className="category-link" href="/ControllersPage">CONTROLLERS</Nav.Link>
+        </Nav>
+      </Container>
+      <BsCart4 className="cart-icon" size="2rem" />
+    </Navbar>
+  );
 };
 
 export default Navigationbar;
