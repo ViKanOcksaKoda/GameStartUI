@@ -1,0 +1,17 @@
+.info_card_image {
+    align-self: center;
+    margin-top: 10px;
+}
+
+.card {
+    border: none;
+}
+
+.card-text {
+    text-align: center;
+}
+
+.imageSize {
+    width: 80%;
+    align-self: center;
+}

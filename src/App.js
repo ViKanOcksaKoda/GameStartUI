@@ -1,5 +1,6 @@
 import Navigationbar from './components/navbar/Navigationbar';
 import CarouselSlider from './components/carousel/CarouselSlider';
+import GamePage from './components/gamepage/GamePage';
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <Navigationbar/>
       <CarouselSlider/>
+      <GamePage/>
     </div>
   );
 }
