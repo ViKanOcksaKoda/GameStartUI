@@ -5,21 +5,17 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import { BsCart4 } from "react-icons/bs";
 import "./Navigationbar.css";
+import GameStartLogo from "../../assets/game-start_logo.png"
 
 const Navigationbar = () => {
     return(
-<Navbar bg="light" variant="light">
-    <Container>
-    <Navbar.Brand href="#home">GAME START</Navbar.Brand>
+<Navbar bg="white" variant="light">
+    <Container className="navbar-container">
+    <Navbar.Brand href="#home"><img className="game-start-logo"src={GameStartLogo}/></Navbar.Brand>
     <Nav className="me-auto">
-    <NavDropdown title="Products" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#games">Games</NavDropdown.Item>
-          <NavDropdown.Divider/>
-          <NavDropdown.Item href="#consoles">Consoles</NavDropdown.Item>
-          <NavDropdown.Divider/>
-          <NavDropdown.Item href="#controllers">Controllers</NavDropdown.Item>
-        </NavDropdown>
-        
+    <Nav.Link className="category-link" href="#games">GAMES</Nav.Link>
+    <Nav.Link className="category-link"href="#consoles">CONSOLES</Nav.Link>
+    <Nav.Link className="category-link"href="#controllers">CONTROLLERS</Nav.Link>  
     </Nav>
     </Container>
     <BsCart4 className="cart-icon" size="2rem"/>
