@@ -7,7 +7,7 @@ import EldenRing from '../../pictures/EldenRingPic.png';
 const ControllerPage = () => {
     return(
         <Container>
-            <h1 className="textToImgrMargin"> Controllers </h1>
+            <h1 className="categoryFont"> Controllers </h1>
 
         <div className="row">
           <div className="col-md-3">

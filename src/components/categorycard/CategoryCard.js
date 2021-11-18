@@ -12,6 +12,10 @@ export default class CategoryCard extends Component {
               <p className="card-text">
                 {this.props.infoText}
               </p>
+              <p className="cardPriceText">
+                {this.props.priceText}
+              </p>
+              <a href="#" class="btn cart px-auto">ADD TO CART</a>
             </div>
           </div>
         );
