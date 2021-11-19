@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 .cart-icon {
-  margin-right: 5%;
+  margin-right: 7%;
 }
 
 .navbar-container {
@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-around;
   margin: auto;
-  margin-left: 20%;
+  margin-left: 25%;
   display: flex;
 }
 
@@ -23,7 +23,7 @@
   font-family: "Montserrat", sans-serif;
   position: relative;
   font-size: 1.5rem;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   padding: 0 10px;
 }
 
