@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-around;
   margin: auto;
-  margin-left: 30%;
+  margin-left: 20%;
   display: flex;
 }
 
@@ -43,5 +43,5 @@
 }
 
 .game-start-logo {
-  width: 100%;
+  padding: 2%;
 }
