@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
 .cart-icon {
-  margin-right: 5%;
+  margin-right: 7%;
 }
 
 .navbar-container {
@@ -9,16 +11,37 @@
 }
 
 .me-auto {
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
   margin: auto;
+  margin-left: 25%;
+  display: flex;
 }
 
-.category-link {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-left: 12%;
-  margin-right: 10%;
+.nav-link {
+  font-family: "Montserrat", sans-serif;
+  position: relative;
   font-size: 1.5rem;
+  letter-spacing: 2px;
+  padding: 0 10px;
+}
+
+.nav-link:after {
+  content: "";
+  position: absolute;
+  background-color: rgb(166, 218, 166);
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+.nav-link:hover:after {
+  width: 100%;
 }
 
 .game-start-logo {
-  width: 80%;
+  padding: 2%;
 }
