@@ -7,7 +7,7 @@ import EldenRing from '../../pictures/EldenRingPic.png';
 const ConsolePage = () => {
     return(
         <Container>
-            <h1 className="categoryFont"> Consoles </h1>
+            <h1 className="categoryFont"> CONSOLES </h1>
 
         <div className="row">
           <div className="col-md-3">

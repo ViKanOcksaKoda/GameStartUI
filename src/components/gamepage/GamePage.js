@@ -10,8 +10,10 @@ import NewWorld from '../../pictures/NewWorld.png';
 
 const GamePage = () => {
     return(
-        <Container>
-            <h1 className="categoryFont"> Games </h1>
+      <Container className="top-container">
+        <Container fluid="lg" className="game-container">
+      
+            <h1 className="categoryFont"> GAMES </h1>
 
         <div className="row">
           <div className="col-md-4">
@@ -37,6 +39,8 @@ const GamePage = () => {
             where you'll forge a new destiny on the supernatural island of Aeternum." priceText= "39.99€" infoImage={NewWorld}></CategoryCard>
           </div>
         </div>
+        
+        </Container>
         </Container>
     );
 };
