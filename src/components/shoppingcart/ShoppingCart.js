@@ -31,7 +31,12 @@ const ShoppingCart = (CustomerID) => {
 
     return (
         <div>
-            
+            {/* Kod för att lägga till rätt antal "productcards". Varje productcard innehåller namn på produkt, kanske beskrivning/del av beskrivning, antal utav produkten,
+            möjlighet att lägga till/ta bort antalet utav specifik produkt, totalpris, och möjligheten att ta bort en produkt helt och hållet - oavsett antal.
+
+            Allting ska gå genom en loop så att det automatiskt skapas ett kort per typ av produkt.
+
+            Två knappar, en för att gå vidare med köpet som omvandlar shoppingcarten till en order och en knapp som tömmer hela shoppingcarten. */}
         </div>
     );
 };
