@@ -1,8 +1,8 @@
 import CarouselSlider from "../carousel/CarouselSlider";
 
 const HomePage = () => {
-    return(
-        <CarouselSlider/>
+    return (
+        <CarouselSlider />
     );
 }
 
