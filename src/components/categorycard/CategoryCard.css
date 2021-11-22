@@ -17,6 +17,13 @@
     font-size: 120%;
 }
 
+.cardTitleText {
+    text-align: center;
+    font-weight: bold;
+    font-size: 110%;
+    padding-top: 1rem;
+}
+
 .imageSize {
     width: 80%;
     align-self: center;
