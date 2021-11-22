@@ -1,7 +1,14 @@
 .carousel-container {
-  margin-top: 2%;
-  width: 60%;
+  width: 100%;
+  margin: auto;
+  background-color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.top-container {
+  margin-top: 1%;
+  max-width: 100%;
+  background-color: rgb(166, 218, 166);
 }
 
 .carousel-caption-blackfriday {

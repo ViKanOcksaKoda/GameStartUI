@@ -7,6 +7,7 @@ import './CarouselSlider.css';
 
 const CarouselSlider = () => {
     return (
+      <Container className="top-container">
       <Container fluid="lg" className="carousel-container">
   <Row>
     <Col><Carousel fade>
@@ -48,6 +49,7 @@ const CarouselSlider = () => {
   </Carousel.Item>
 </Carousel></Col>
   </Row>
+</Container>
 </Container>
         
     );

@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Navigationbar from './components/navbar/Navigationbar';
 import HomePage from './components/homepage/HomePage';
+import GamePage from './components/gamepage/GamePage';
+import ConsolePage from './components/consolepage/ConsolePage';
+import ControllerPage from './components/controllerpage/ControllerPage';
 import './App.css';
 
 function App() {
@@ -10,10 +13,10 @@ function App() {
         <Navigationbar />
         <Routes>
           <Route path='/' element={ <HomePage /> } />
-          {/* <Route path='/GamePage' element={ <GamePage />} />
+          <Route path='/GamePage' element={ <GamePage />} />
           <Route path='/ConsolePage' element={ <ConsolePage />} />
           <Route path='/ControllersPage' element={ <ControllerPage />} />
-          <Route path='/AdminPage' element={ <AdminPage /> } /> */}
+          {/* <Route path='/AdminPage' element={ <AdminPage /> } /> */}
         </Routes>
       </div>
     </Router>
