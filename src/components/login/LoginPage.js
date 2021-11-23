@@ -26,7 +26,7 @@ const LoginPage = () => {
     <Form.Control type="password" placeholder="Password" />
   </FloatingLabel>
         </Form>
-        <Button className="submit-button mt-3" variant="outline-dark" type="submit">
+        <Button className="submit-button mt-4" variant="outline-dark" type="submit">
                 Submit
             </Button>
         </Container>
