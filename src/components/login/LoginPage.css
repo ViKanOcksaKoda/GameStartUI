@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap%22");
+
+
+.login-container{
+    margin-top: 5%;
+    width: 30%;
+    font-family: "Montserrat", sans-serif;
+}
+
+.login-label {
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.submit-button{
+    margin: 0 auto;
+    display: block;
+}
+
+
