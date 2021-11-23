@@ -12,9 +12,12 @@ const Navigationbar = () => {
       <Container className="navbar-container">
         <Navbar.Brand href="/"><img className="game-start-logo" src={GameStartLogo} /></Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link className="nav-link" href="/GamePage">GAMES</Nav.Link>
-          <Nav.Link className="nav-link" href="/ConsolePage">CONSOLES</Nav.Link>
-          <Nav.Link className="nav-link" href="/ControllersPage">CONTROLLERS</Nav.Link>
+          <Nav.Link className="nav-link" href="/GamePage">Games</Nav.Link>
+          <Nav.Link className="nav-link" href="/ConsolePage">Consoles</Nav.Link>
+          <Nav.Link className="nav-link" href="/ControllersPage">Controllers</Nav.Link>
+          <Nav>
+          <Nav.Link href="/Login">Login</Nav.Link>
+          <Nav.Link href="/SignUp">/ Sign Up</Nav.Link></Nav>
         </Nav>
       </Container>
       <BsCart4 className="cart-icon" size="2rem" />
