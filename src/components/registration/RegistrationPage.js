@@ -13,18 +13,14 @@ const RegistrationPage = () => {
     const [password, setPassword] = useState("");
     const [role, setRole] = useState("");
 
-    const onHandleSubmit = () => {
-        axios.post('https://localhost:7024/api/users', {
-            userName: username,
-            password: password,
-            role: role,
-            firstName: firstName,
-            lastName: lastName
-        })
+    const onHandleSubmit = async () => {
+        const submitForm = { "userName": username, "password": password, "role": role, "firstName": firstName, "lastName": lastName }
 
-        //let variable = axios.post???
-        //testa om variable = status code 200
-        //om inte >> felmeddelande
+        axios.post('https://localhost:7024/api/users', submitForm)
+        .catch(error => {
+            window.alert("Unfortunately we couldn't register an account for you - please change your username.");
+            console.log({error});
+        })
     }
 
     return (
@@ -58,7 +54,7 @@ const RegistrationPage = () => {
                     <Form.Label>Role</Form.Label>
                     <Form.Control type="string" placeholder="Role" onChange={event => setRole(event.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={onHandleSubmit}>
+                <Button variant="primary" type="button" onClick={ onHandleSubmit }>
                     Register
                 </Button>
             </Form>
