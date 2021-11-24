@@ -23,4 +23,9 @@
     display: block;
 }
 
+.error {
+    color: red;
+    padding: 2%;
+}
+
 
