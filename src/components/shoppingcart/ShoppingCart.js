@@ -1,39 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import service from "../../service";
 
-const ShoppingCart = (id) => {
-
-    const baseURL = "https://localhost:7024/";
+const ShoppingCart = () => {
 
     const [CurrentShoppingcart, setCurrentShoppingcart] = useState([]);
     const [CustomerID, setCustomerID] = useState();
 
-    setCustomerID(CustomerID);
+    // setCustomerID(id);
     // setCurrentShoppingcart(Service.GetShoppingcart(CustomerID));
 
     useEffect(() => {
-        fetch(baseURL + "api/shoppingcart/get")
-            .then(response => response.json())
-            .then(data => {
-                setCurrentShoppingcart(data);
+        // service.GetShoppingCart(CustomerID)
+        service.GetCurrentShoppingcart()
+            .then((res) => {
+                setCurrentShoppingcart(res.data);
             })
     }, [])
 
+    // const onHandleChange = () => {
+    //     service.GetShoppingCart(CustomerID)
+    //         .then((res) => {
+    //             setCurrentShoppingcart(res.data);
+    //         })
+    // };
+
     const RemoveItemFromCart = (ProductID) => {
-        // Service.RemoveItemFromCart(ProductID);
+
     };
 
     const EmptyCart = (CustomerID) => {
         // Service.EmptyCart(CustomerID);
     };
 
-    const IncreaseQuantity = () => {
-        //Genomför databaskoll ifall det finns mer utav produkten innan det godkänns
-    };
+    // const IncreaseQuantity = () => {
+    //     const [productQuantity, setProductQuantity] = useState(0);
+    //     fetch(service.baseURL + `api/products/${ProductID}`)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             setProductQuantity(data.StockBalance);
+    //         });
 
-    const DecreaseQuantity = () => {
-        //Genomför koll ifall quantity når 0
-    };
+    //     if (productQuantity > 1) {
+
+    //     }
+    // };
+
+    // const DecreaseQuantity = () => {
+    //     //Genomför koll ifall quantity når 0
+    // };
 
     const ProcessPurchase = () => {
         //Genomför köp
@@ -45,12 +59,7 @@ const ShoppingCart = (id) => {
 
     return (
         <div>
-            {CurrentShoppingcart.map(function(d, idx) {
-                return (<li key={idx}>{d.ProductId}{d.Quantity}</li>)
-            })}
-
-
-
+            <h1>SHOPPINGCART</h1>
 
             {/* Kod för att lägga till rätt antal "productcards". Varje productcard innehåller namn på produkt, kanske beskrivning/del av beskrivning, antal utav produkten,
             möjlighet att lägga till/ta bort antalet utav specifik produkt, totalpris, och möjligheten att ta bort en produkt helt och hållet - oavsett antal.
