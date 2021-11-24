@@ -38,7 +38,7 @@ const LoginPage = () => {
       <Button className="submit-button mt-4" variant="outline-dark" type="submit" onClick={handleShow}>
         Submit
       </Button>
-      <Modal show={show} onHide={handleClose} backdrop="static"
+      <Modal className="login-modal"show={show} onHide={handleClose} backdrop="static"
         keyboard={false}>
 <Modal.Header closeButton>
   <Modal.Title>Welcome to GameStart!</Modal.Title>
