@@ -4,6 +4,7 @@ import HomePage from './components/homepage/HomePage';
 import GamePage from './components/gamepage/GamePage';
 import ConsolePage from './components/consolepage/ConsolePage';
 import ControllerPage from './components/controllerpage/ControllerPage';
+import RegistrationPage from './components/registration/RegistrationPage';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/ConsolePage' element={ <ConsolePage />} />
           <Route path='/ControllersPage' element={ <ControllerPage />} />
           {/* <Route path='/AdminPage' element={ <AdminPage /> } /> */}
+          <Route path='/SignUp' element={ <RegistrationPage /> } /> 
         </Routes>
       </div>
     </Router>
