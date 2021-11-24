@@ -1,22 +1,20 @@
 import React from "react";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import Container from "react-bootstrap/Container"
+import Modal from "react-bootstrap/Modal"
 import { useState, useEffect } from "react";
 import "./LoginPage.css";
+import {useNavigate} from "react-router-dom";
 
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
   
   const [show, setShow] = useState(false);
-  con
-
-  const onHandleSubmit = () => {
-
-  }
+  const navigate = useNavigate();
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <Container className="login-container">
@@ -36,10 +34,26 @@ const LoginPage = () => {
           <Form.Control type="password" placeholder="Password" />
         </FloatingLabel>
       </Form>
-      {error && <p className="error">{error}</p>}
-      <Button className="submit-button mt-4" variant="outline-dark" type="submit">
+      
+      <Button className="submit-button mt-4" variant="outline-dark" type="submit" onClick={handleShow}>
         Submit
       </Button>
+      <Modal show={show} onHide={handleClose} backdrop="static"
+        keyboard={false}>
+<Modal.Header closeButton>
+  <Modal.Title>Welcome to GameStart!</Modal.Title>
+</Modal.Header>
+<Modal.Body>
+  You successfully logged in! :)
+</Modal.Body>
+<Modal.Footer>
+  <Button variant="outline-dark" onClick={() => {
+    navigate("/")
+  }}>
+    Go To Main Page
+  </Button>
+</Modal.Footer>
+      </Modal>
     </Container>
   );
 };
