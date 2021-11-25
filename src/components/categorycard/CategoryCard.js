@@ -18,7 +18,7 @@ export default class CategoryCard extends Component {
               <p className="cardPriceText">
                 {this.props.priceText}
               </p>
-              <a href="#" class="btn cart px-auto">ADD TO CART</a>
+              <a href="#" className="btn cart px-auto">ADD TO CART</a>
             </div>
           </div>
         );
