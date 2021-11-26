@@ -21,9 +21,9 @@ const LoginPage = () => {
     axios
       .get(`https://localhost:7024/api/users/login${username}/${password}`)
       .then((response) => {
-        console.log(response.data.loggedIn);
-        console.log(response.data.userId);
-
+        localStorage.setItem("loggedInStatus", JSON.stringify(response.data.loggedIn));
+        localStorage.setItem("userId", JSON.stringify(response.data.userId));
+        
         if ((response.data.loggedIn = true)) {
           setShow(true);
         }
