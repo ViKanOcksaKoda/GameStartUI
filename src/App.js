@@ -6,6 +6,7 @@ import ConsolePage from './components/consolepage/ConsolePage';
 import ControllerPage from './components/controllerpage/ControllerPage';
 import LoginPage from './components/login/LoginPage';
 import RegistrationPage from './components/registration/RegistrationPage';
+import ShoppingCart from "./components/shoppingcart/Shoppingcart";
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/LogIn' element={<LoginPage />} />
           {/* <Route path='/AdminPage' element={ <AdminPage /> } /> */}
           <Route path='/SignUp' element={ <RegistrationPage /> } /> 
+          <Route path='/Shoppingcart' element={ <ShoppingCart /> } />
         </Routes>
       </div>
     </Router>

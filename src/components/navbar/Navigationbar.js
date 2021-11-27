@@ -5,10 +5,12 @@ import Container from 'react-bootstrap/Container';
 import { BsCart4, BsWindowSidebar } from "react-icons/bs";
 import "./Navigationbar.css";
 import GameStartLogo from "../../assets/game-start_logo.png"
+import { useNavigate } from "react-router-dom";
 
 const Navigationbar = () => {
   const [loggedIn, setLoggedIn] = useState();
   const [userId, setUserId] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setUserId(localStorage.getItem("userId"));
@@ -43,7 +45,7 @@ const Navigationbar = () => {
           </Nav>
         </Nav>
       </Container>
-      <BsCart4 className="cart-icon" size="2rem" />
+      <BsCart4 className="cart-icon" size="2rem" onClick={() => {navigate("/Shoppingcart")}} />
     </Navbar>
   );
 };
