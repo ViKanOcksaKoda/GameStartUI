@@ -2,11 +2,6 @@ import React from 'react';
 import CategoryCard from '../categorycard/CategoryCard'
 import Container from 'react-bootstrap/Container';
 import "./ConsolePage.css";
-import Ps4 from '../../pictures/ps4.png';
-import Ps5 from '../../pictures/ps5.png';
-import Xbox from '../../pictures/xbox.png';
-import Swtich from '../../pictures/switch.png';
-import Googlestadia from '../../pictures/googlestadia.png';
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -29,7 +24,7 @@ const ConsolePage = () => {
     <CategoryCard
       cardTitleText={data.name}
       infoText={data.description}
-      infoImage={Ps4}
+      infoImage={data.id}
       priceText={data.price + " €"}
     />
   ));

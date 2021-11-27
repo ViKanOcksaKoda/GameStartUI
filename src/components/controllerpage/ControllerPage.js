@@ -2,11 +2,6 @@ import React from "react";
 import CategoryCard from "../categorycard/CategoryCard";
 import Container from "react-bootstrap/Container";
 import "./ControllerPage.css";
-import Ps5Controller from "../../pictures/ps5controller.png";
-import Ps4Controller from "../../pictures/ps4controller.png";
-import XboxController from "../../pictures/xboxcontroller.png";
-import SwitchController from "../../pictures/nintendoswitchcontroller.png";
-import SwitchProController from "../../pictures/nintendoprocontroller.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -27,7 +22,7 @@ const ControllerPage = () => {
     <CategoryCard
       cardTitleText={info.name}
       infoText={info.description}
-      infoImage={Ps4Controller}
+      infoImage={info.id}
       priceText={info.price + " €"}
     />
   ));

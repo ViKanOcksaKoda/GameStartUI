@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react';
 import CategoryCard from '../categorycard/CategoryCard'
 import Container from 'react-bootstrap/Container';
 import "./GamePage.css";
-import Valheim from '../../pictures/Valheim.png';
-import WorldOfWarcraft from '../../pictures/WorldOfWarcraft.png';
-import Zelda from '../../pictures/Zelda.png';
-import EldenRing from '../../pictures/EldenRingPic.png';
-import NewWorld from '../../pictures/NewWorld.png';
 import axios from 'axios';
 
 const GamePage = () => {
@@ -28,7 +23,7 @@ const GamePage = () => {
     <CategoryCard
       cardTitleText={data.name}
       infoText={data.description}
-      infoImage={Valheim}
+      infoImage={data.id}
       priceText={data.price + " €"}
     />
   ));
