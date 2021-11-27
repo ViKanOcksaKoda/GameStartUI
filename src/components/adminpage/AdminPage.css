@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap%22");
+
+.categoryFont{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: 2%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    padding-left: 10px;  
+ }
+
+ .top-container {
+    margin-top: 1%;
+    max-width: 100%;
+    background-color: rgb(166, 218, 166);
+  }
+
+  .game-container {
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }
+
+  .admin-button {
+      margin-left: 3rem;
+      margin-bottom: 5rem;
+  }
+
+  .left-Colum-Style {
+    text-align: end;
+  }
