@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import "./CategoryCard.css";
+import { BsCart4 } from "react-icons/bs";
 
 export default class CategoryCard extends Component {
   static displayName = CategoryCard.name;
@@ -17,9 +18,14 @@ export default class CategoryCard extends Component {
             <p className="cardTitleText">{this.props.cardTitleText}</p>
             <p className="card-text">{this.props.infoText}</p>
             <p className="cardPriceText">{this.props.priceText}</p>
-            <a href="#" class="btn cart px-auto">
+            <Button
+              className="submit-button mt-4"
+              variant="outline-dark"
+              type="submit"
+            >
               ADD TO CART
-            </a>
+              <BsCart4 className="category-cart-icon" size="1.5rem" />
+            </Button>
           </div>
         </div>
       </Container>
