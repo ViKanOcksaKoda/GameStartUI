@@ -14,7 +14,7 @@ const ControllerPage = () => {
   const [info, setInfo] = useState([]);
   const getAllControllerData = () => {
     axios
-      .get(`https://localhost:7024/api/products/categoryproducts?CategoryId=1`)
+      .get(`https://localhost:7024/api/products/categoryproducts?CategoryId=3`)
       .then((response) => {
         const allControllerData = response.data.products;
         console.log(allControllerData);
