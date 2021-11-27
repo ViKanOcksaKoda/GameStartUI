@@ -5,6 +5,8 @@ import GamePage from './components/gamepage/GamePage';
 import ConsolePage from './components/consolepage/ConsolePage';
 import ControllerPage from './components/controllerpage/ControllerPage';
 import AdminPage from './components/adminpage/AdminPage';
+import LoginPage from './components/login/LoginPage';
+import RegistrationPage from './components/registration/RegistrationPage';
 import './App.css';
 
 function App() {
@@ -17,7 +19,9 @@ function App() {
           <Route path='/GamePage' element={ <GamePage />} />
           <Route path='/ConsolePage' element={ <ConsolePage />} />
           <Route path='/ControllersPage' element={ <ControllerPage />} />
+          <Route path='/LogIn' element={<LoginPage />} />
           <Route path='/AdminPage' element={ <AdminPage /> } />
+          <Route path='/SignUp' element={ <RegistrationPage /> } /> 
         </Routes>
       </div>
     </Router>
