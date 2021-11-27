@@ -10,10 +10,10 @@ const ShoppingCart = () => {
     useEffect(() => {
         setCustomerID(localStorage.getItem("userId"));
 
-        // axios.get(`https://localhost:7024/api/shoppingcart/${CustomerID}/${ShoppingcartID}`)
-        //     .then((response) => {
-        //         setCurrentShoppingcart(response.data);
-        //     })
+        axios.get(`https://localhost:7024/api/shoppingcart/${CustomerID}`)
+            .then((response) => {
+                setCurrentShoppingcart(response.data);
+            })
     },)
 
     // const onHandleChange = () => {
