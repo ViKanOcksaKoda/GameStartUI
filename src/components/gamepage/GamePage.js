@@ -14,7 +14,7 @@ const GamePage = () => {
   const [data, setData] = useState([]);
 
   const getGamesData = () => {
-    axios.get(`https://localhost:7024/api/products/categoryproducts?CategoryId=3`)
+    axios.get(`https://localhost:7024/api/products/categoryproducts?CategoryId=1`)
       .then((response) => {
         setData(response.data.products);
       })
@@ -36,7 +36,6 @@ const GamePage = () => {
   return (
     <Container className="top-container">
       <Container fluid="lg" className="game-container">
-
         <h1 className="categoryFont"> GAMES </h1>
         <div className="row">
           <div className="col category-card card-padding">{displayData}</div>
