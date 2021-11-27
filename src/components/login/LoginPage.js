@@ -19,10 +19,10 @@ const LoginPage = () => {
 
   const handleSubmit = () => {
     axios
-      .get(`https://localhost:7024/api/users/login${username}/${password}`)
+      .get(`https://localhost:7024/api/users/login/${username}/${password}`)
       .then((response) => {
-        localStorage.setItem("loggedInStatus", JSON.stringify(response.data.loggedIn));
-        localStorage.setItem("userId", JSON.stringify(response.data.userId));
+        localStorage.setItem("loggedInStatus", (response.data.loggedIn));
+        localStorage.setItem("userId", (response.data.userId));
         
         if ((response.data.loggedIn = true)) {
           setShow(true);
@@ -83,6 +83,7 @@ const LoginPage = () => {
             variant="outline-dark"
             onClick={() => {
               navigate("/");
+              window.location.reload();
             }}
           >
             Go To Main Page
