@@ -12,7 +12,7 @@ export default class CategoryCard extends Component {
         <div className="card">
           <img
             className="card-img-top .info_card_image imageSize"
-            src={this.props.infoImage}
+            src={`./images/products/product_id-${this.props.infoImage}.png`}
           />
           <div className="card-body">
             <p className="cardTitleText">{this.props.cardTitleText}</p>
