@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 .cart-icon {
+  margin-top: 1%;
   margin-right: 7%;
 }
 
@@ -13,7 +14,7 @@
 .me-auto {
   width: 80%;
   align-items: center;
-  justify-content:space-around;
+  justify-content: space-around;
   margin: auto;
   display: flex;
 }
@@ -43,6 +44,8 @@
 }
 
 .game-start-logo {
-  width: 80%;
+  margin-top: 8%;
+  margin-left: 18%;
+  width: 100%;
   padding: 2%;
 }
