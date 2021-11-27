@@ -2,7 +2,6 @@
 
 .categoryFont{
     padding-top: 50px;
-    padding-bottom: 50px;
     margin-left: 2%;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
@@ -10,17 +9,17 @@
  }
 
  .top-container {
-    margin-top: 1%;
-    max-width: 100%;
-    background-color: rgb(166, 218, 166);
-  }
+  border-top: 1px solid rgb(166, 218, 166);
+  margin-top: 1%;
+  max-width: 100%;
+  background-color: rgb(166, 218, 166);
+}
 
-  .game-container {
-    width: 100%;
-    margin: auto;
-    background-color: white;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  }
+.game-container {
+  width: 100%;
+  background-color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
 
   .card-padding {
       padding-top: 5rem;
