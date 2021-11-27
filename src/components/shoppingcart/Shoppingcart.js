@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import service from "../../service";
+import Container from "react-bootstrap/Container";
 import axios from 'axios';
 
 const ShoppingCart = () => {
@@ -14,20 +14,10 @@ const ShoppingCart = () => {
             .then((response) => {
                 setCurrentShoppingcart(response.data);
             })
-    },)
+            .catch((error) => console.log(`Error: ${error}`));
+    })
 
-    // const onHandleChange = () => {
-    //     service.GetShoppingCart(CustomerID)
-    //         .then((res) => {
-    //             setCurrentShoppingcart(res.data);
-    //         })
-    // };
-
-    const RemoveItemFromCart = (ProductID) => {
-
-    };
-
-    const EmptyCart = (CustomerID) => {
+    const EmptyCart = () => {
         axios.get(`https://localhost:7024/api/shoppingcart/`)
     };
 
@@ -35,13 +25,25 @@ const ShoppingCart = () => {
         //Genomför köp
     };
 
+    const displayShoppingcart = () => {
+        {
+            CurrentShoppingcart.map((CurrentShoppingcart) => {
+
+            })
+        }
+    }
+
     return (
-        <div>
-            <h1>SHOPPINGCART</h1>
-            {CurrentShoppingcart.map(({id, unitPrice, productId}) => {
-                return <p key={id}>ProduktID: {productId}, pris: {unitPrice}</p>
-            })}
-        </div>
+        <Container className="top-container">
+            <Container className="shoppingcart-container">
+                <h1 className="shoppingcartFont"> SHOPPINGCART </h1>
+                <div className="row">
+                    <div className="col category-card card-padding">
+
+                    </div>
+                </div>
+            </Container>
+        </Container>
     );
 };
 
