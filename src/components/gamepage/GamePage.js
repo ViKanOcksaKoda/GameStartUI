@@ -29,6 +29,7 @@ const GamePage = () => {
       cardTitleText={data.name}
       infoText={data.description}
       infoImage={Valheim}
+      priceText={data.price + " €"}
     />
   ));
 
