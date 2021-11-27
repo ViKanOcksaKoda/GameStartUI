@@ -28,18 +28,18 @@ const Navigationbar = () => {
   return (
     <Navbar bg="white" variant="light">
       <Container className="navbar-container">
-        <Navbar.Brand href="/"><img className="game-start-logo" src={GameStartLogo} /></Navbar.Brand>
+        <Navbar.Brand onClick={() => {navigate("/")}}><img className="game-start-logo" src={GameStartLogo} /></Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link className="nav-link" href="/GamePage">Games</Nav.Link>
-          <Nav.Link className="nav-link" href="/ConsolePage">Consoles</Nav.Link>
-          <Nav.Link className="nav-link" href="/ControllersPage">Controllers</Nav.Link>
+          <Nav.Link className="nav-link" onClick={() => {navigate("/GamePage")}}>Games</Nav.Link>
+          <Nav.Link className="nav-link" onClick={() => {navigate("/ConsolePage")}}>Consoles</Nav.Link>
+          <Nav.Link className="nav-link" onClick={() => {navigate("/ControllersPage")}}>Controllers</Nav.Link>
           <Nav>
             {loggedIn === "true" ?
               <Nav.Link onClick={logout}>Log-out</Nav.Link>
               :
               [
-              <Nav.Link href="/Login">Login</Nav.Link>,
-              <Nav.Link href="/SignUp">/ Sign Up</Nav.Link>
+              <Nav.Link onClick={() => {navigate("/Login")}}>Login</Nav.Link>,
+              <Nav.Link onClick={() => {navigate("/Signup")}}>/ Sign Up</Nav.Link>
               ]
             }
           </Nav>
