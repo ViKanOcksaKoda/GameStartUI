@@ -10,7 +10,6 @@ import NewWorld from '../../pictures/NewWorld.png';
 import axios from 'axios';
 
 const GamePage = () => {
-
   const [data, setData] = useState([]);
 
   const getGamesData = () => {
