@@ -31,6 +31,7 @@ const ConsolePage = () => {
       infoText={data.description}
       infoImage={Ps4}
       priceText={data.price + " €"}
+      stockNumber={data.stockBalance}
     />
   ));
 

@@ -30,6 +30,7 @@ const GamePage = () => {
       infoText={data.description}
       infoImage={Valheim}
       priceText={data.price + " €"}
+      stockNumber={data.stockBalance}
     />
   ));
 

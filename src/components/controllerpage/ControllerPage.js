@@ -29,6 +29,7 @@ const ControllerPage = () => {
       infoText={info.description}
       infoImage={Ps4Controller}
       priceText={info.price + " €"}
+      stockNumber={info.stockBalance}
     />
   ));
 
