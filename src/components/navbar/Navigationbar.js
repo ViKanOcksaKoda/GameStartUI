@@ -93,7 +93,7 @@ const Navigationbar = () => {
                     navigate("/AdminPage");
                   }}
                 >
-                  Admin
+                  / Admin
                 </Nav.Link>
               ) : (
                 <div></div>
