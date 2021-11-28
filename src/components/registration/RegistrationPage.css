@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap%22");
 
-
 .signup-container{
     margin-top: 3%;
     width: 40%;
@@ -28,3 +27,6 @@
     padding: 2%;
 }
 
+.signup-modal{
+    margin-top:15%;
+}
