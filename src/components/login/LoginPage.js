@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
@@ -6,24 +6,29 @@ import { useState } from "react";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { StatusContext } from "../context/StatusContext";
+import { UserContext } from "../context/UserContext";
+import { RoleContext } from "../context/RoleContext";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const { status, setStatus } = useContext(StatusContext);
+  const { user, setUser } = useContext(UserContext);
+  const { role, setRole } = useContext(RoleContext);
   const [showModal, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     axios
       .get(`https://localhost:7024/api/users/login/${username}/${password}`)
       .then((response) => {
-        localStorage.setItem("loggedInStatus", (response.data.loggedIn));
-        localStorage.setItem("userId", (response.data.userId));
-        
+        setStatus(response.data.loggedIn);
+        setUser(response.data.userId);
+        setRole(response.data.role);
+
         if ((response.data.loggedIn = true)) {
           setShow(true);
         }
@@ -83,7 +88,6 @@ const LoginPage = () => {
             variant="outline-dark"
             onClick={() => {
               navigate("/");
-              window.location.reload();
             }}
           >
             Go To Main Page

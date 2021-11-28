@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -6,23 +6,27 @@ import { BsCart4, BsWindowSidebar } from "react-icons/bs";
 import "./Navigationbar.css";
 import GameStartLogo from "../../assets/game-start_logo.png";
 import { useNavigate } from "react-router-dom";
+import { StatusContext } from "../context/StatusContext";
+import { RoleContext } from "../context/RoleContext";
+import { UserContext } from "../context/UserContext";
 
 const Navigationbar = () => {
-  const [loggedIn, setLoggedIn] = useState();
-  const [userId, setUserId] = useState();
   const navigate = useNavigate();
+  const { status, setStatus } = useContext(StatusContext);
+  const { role, setRole } = useContext(RoleContext);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-    setUserId(localStorage.getItem("userId"));
-    setLoggedIn(localStorage.getItem("loggedInStatus"));
-    console.log(loggedIn);
-    console.log(userId);
+    console.log(status);
+    console.log(role);
+    console.log(user);
   });
 
   const logout = () => {
-    localStorage.setItem("userId", null);
-    localStorage.setItem("loggedInStatus", false);
-    window.location.reload();
+    setStatus(false);
+    setRole("guest");
+    setUser(null);
+    navigate("/");
   };
 
   return (
@@ -61,8 +65,8 @@ const Navigationbar = () => {
             Controllers
           </Nav.Link>
           <Nav>
-            {loggedIn === "true" ? (
-              <Nav.Link onClick={logout}>Log-out</Nav.Link>
+            {status === true ? (
+              <Nav.Link className="nav-link" onClick={logout}>Log-out</Nav.Link>
             ) : (
               [
                 <Nav.Link
@@ -81,6 +85,20 @@ const Navigationbar = () => {
                 </Nav.Link>,
               ]
             )}
+            <Nav>
+              {role === "admin" ? (
+                <Nav.Link
+                  className="nav-link"
+                  onClick={() => {
+                    navigate("/AdminPage");
+                  }}
+                >
+                  Admin
+                </Nav.Link>
+              ) : (
+                <div></div>
+              )}
+            </Nav>
           </Nav>
         </Nav>
       </Container>
