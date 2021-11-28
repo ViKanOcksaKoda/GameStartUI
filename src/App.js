@@ -7,6 +7,7 @@ import ConsolePage from './components/consolepage/ConsolePage';
 import ControllerPage from './components/controllerpage/ControllerPage';
 import AdminPage from './components/adminpage/AdminPage';
 import LoginPage from './components/login/LoginPage';
+import ShoppingCart from './components/shoppingcart/ShoppingCart';
 import RegistrationPage from './components/registration/RegistrationPage';
 import { StatusContext } from './components/context/StatusContext';
 import { UserContext } from './components/context/UserContext';
@@ -33,6 +34,7 @@ function App() {
                 <Route path='/LogIn' element={<LoginPage />} />
                 <Route path='/AdminPage' element={<AdminPage />} />
                 <Route path='/SignUp' element={<RegistrationPage />} />
+                <Route path='/Shoppingcart' element={ <ShoppingCart /> } />
               </Routes>
             </RoleContext.Provider>
           </UserContext.Provider>
