@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import Container from "react-bootstrap/Container"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegistrationPage.css";
@@ -12,10 +12,11 @@ const RegistrationPage = () => {
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState("guest");
+    const [role] = useState("guest");
     const [showModal, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const navigate = useNavigate();
 
     const onHandleSubmit = async () => {
         const submitForm = { "userName": username, "password": password, "role": role, "firstName": firstName, "lastName": lastName }
@@ -103,6 +104,7 @@ const RegistrationPage = () => {
                         onClick={() => {
                             setShow(false);
                             clearInputFields();
+                            navigate("/");
                         }}
                     >
                         Close

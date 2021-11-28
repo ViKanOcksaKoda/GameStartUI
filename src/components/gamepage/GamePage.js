@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import CategoryCard from '../categorycard/CategoryCard'
 import Container from 'react-bootstrap/Container';
-import "./GamePage.css";
 import axios from 'axios';
+import "./GamePage.css";
 
 const GamePage = () => {
   const [data, setData] = useState([]);
