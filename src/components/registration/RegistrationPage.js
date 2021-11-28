@@ -2,10 +2,11 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import Container from "react-bootstrap/Container"
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegistrationPage.css";
+import { UserContext } from "../context/UserContext";
 
 const RegistrationPage = () => {
     const [firstName, setFirstName] = useState("");
@@ -13,25 +14,30 @@ const RegistrationPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [role] = useState("guest");
+    const { user, setUser } = useContext(UserContext);
     const [showModal, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const navigate = useNavigate();
 
+    var instance = axios.create({
+        validateStatus: function (status) {
+            return status >= 200 && status < 300;
+        }
+    });
+
     const onHandleSubmit = async () => {
         const submitForm = { "userName": username, "password": password, "role": role, "firstName": firstName, "lastName": lastName }
 
-        var instance = axios.create({
-            validateStatus: function (status) {
-                return status >= 200 && status < 300;
-            }
-        });
-
         await instance.post('https://localhost:7024/api/users', submitForm)
             .then((response) => {
-                if (response.request.statusText === "OK") {
-                    handleShow();
-                }
+
+                setUser(response.data.user.id);
+                handleShow();
+                // if (response.request.statusText === "OK") {
+                //     setUser(response.data.user.id);
+                //     handleShow();
+                // }
             })
             .catch(function (error) {
                 if (error.response) {
@@ -43,6 +49,36 @@ const RegistrationPage = () => {
                 }
                 console.log(error.config);
                 alert("You've entered an username that's already registered here on this website. Please pick another.");
+            })
+    }
+
+    const createCart = async () => {
+        const submitCart = {
+            "userId": String(user), "shoppingCartItem": [
+                {
+                    "unitPrice": 0,
+                    "quantity": 0,
+                    "productId": 0,
+                    "shoppingCartId": 0
+                }]
+        }
+
+        await instance.post(`https://localhost:7024/api/shoppingcarts`, submitCart)
+            .then((response) => {
+                if (response.request.statusText === "OK") {
+                    console.log(response.request.statusText);
+                }
+            })
+            .catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.data);
+                    console.log(error.message.status);
+                    console.log(error.response.headers);
+                } else {
+                    console.log('Error', error.message);
+                }
+                console.log(error.config);
+                alert("Error");
             })
     }
 
@@ -103,6 +139,7 @@ const RegistrationPage = () => {
                         variant="outline-dark"
                         onClick={() => {
                             setShow(false);
+                            createCart();
                             clearInputFields();
                             navigate("/");
                         }}
