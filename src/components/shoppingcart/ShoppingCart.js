@@ -1,62 +1,50 @@
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import { CartContext } from "../context/CartContext";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
+import CartCard from "../cartcard/CartCard";
 import "./ShoppingCart.css";
 
 const ShoppingCart = () => {
-  const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
+    const { cart, setCart } = useContext(CartContext);
+    const [items, setItems] = useState([]);
+    const [test, setTest] = useState("");
+    const [currentTotal, setCurrentTotal] = useState();
 
-  const getShoppingcart = () => {
-    axios
-      .get(`https://localhost:7024/api/shoppingcart/${user}`)
-      .then((response) => {
-        console.log(response.data.cartItems.shoppingCartItem);
-      })
-      .catch((error) => console.log(`Error: ${error}`));
-  };
-
-  useEffect(() => {
-    getShoppingcart();
-  }, []);
-
-  const EmptyCart = () => {
-    axios.get(`https://localhost:7024/api/shoppingcart/`);
-  };
-
-  const ProcessPurchase = () => {
-    //Genomför köp
-  };
-
-  const displayShoppingcart = () => {
-    {
+    const getShoppingcart = async () => {
+        await axios.get(`https://localhost:7024/api/shoppingcart/${String(user)}`)
+            .then((response) => setCart(response.data.cartItems.shoppingCartItem))
+            .catch((error) => console.log(error))
     }
-  };
 
-  return (
-    <Container className="shoppingcart-container">
-      <h1 className="shoppingcart-title">Shopping Cart</h1>
-      <Table responsive className="shoppingcart-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Product ID</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
-          </tr>
-        </tbody>
-      </Table>
-    </Container>
-  );
+    useEffect(() => {
+        getShoppingcart();
+        console.log(cart);
+    }, [])
+
+    const displayCart = cart.map((cart) => (
+        <CartCard
+            productid={cart.productId}
+            price={cart.unitPrice}
+            quantity={cart.quantity}
+        />
+    ))
+
+    return (
+        <Container>
+            <Container>
+                <h1 className="shoppingcartFont"> Shopping cart</h1>
+                <div className="row">
+                    <div>{displayCart}</div>
+                    <button>Checkout</button>
+                    <button>Empty cart</button>
+                </div>
+            </Container>
+        </Container>
+    );
 };
 
 export default ShoppingCart;
