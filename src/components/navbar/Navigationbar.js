@@ -102,7 +102,7 @@ const Navigationbar = () => {
           </Nav>
         </Nav>
       </Container>
-      <BsCart4 className="cart-icon" size="2rem" />
+      <BsCart4 className="cart-icon" size="2rem" onClick={() => {navigate("/Shoppingcart")}}/>
     </Navbar>
   );
 };
