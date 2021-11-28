@@ -24,6 +24,7 @@ const ControllerPage = () => {
       infoText={info.description}
       infoImage={info.id}
       priceText={info.price + " €"}
+      stockNumber={info.stockBalance}
     />
   ));
 

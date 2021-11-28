@@ -25,6 +25,7 @@ const GamePage = () => {
       infoText={data.description}
       infoImage={data.id}
       priceText={data.price + " €"}
+      stockNumber={data.stockBalance}
     />
   ));
 

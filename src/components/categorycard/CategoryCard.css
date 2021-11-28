@@ -24,6 +24,11 @@
   font-size: 120%;
 }
 
+.cardStockText {
+  text-align: center;
+  font-size: 70%;
+}
+
 .cardTitleText {
   text-align: center;
   font-weight: bold;
