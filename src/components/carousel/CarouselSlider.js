@@ -3,6 +3,9 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import Blackfriday from '../../assets/Blackfriday.png';
+import PS5Reveal from '../../assets/ps5-reveal.png';
+import Zelda from '../../assets/zelda.png';
 import './CarouselSlider.css';
 
 const CarouselSlider = () => {
@@ -14,7 +17,7 @@ const CarouselSlider = () => {
   <Carousel.Item interval={4000}>
     <Image
       className="d-block w-100"
-      src="https://www.timarco.com/Content/images/black-friday.png"
+      src={Blackfriday}
       alt="First slide"
       rounded
     />
@@ -26,7 +29,7 @@ const CarouselSlider = () => {
   <Carousel.Item interval={4000}>
     <Image
       className="d-block w-100"
-      src="https://d1lss44hh2trtw.cloudfront.net/assets/article/2020/06/08/ps5-reveal-livestream-date-possibly-leaked-by-german-twitch-ad_feature.jpg"
+      src={PS5Reveal}
       alt="Second slide"
       rounded
     />
@@ -38,7 +41,7 @@ const CarouselSlider = () => {
   <Carousel.Item interval={4000}>
     <Image
       className="d-block w-100"
-      src="https://i.ytimg.com/vi/O500akRES4M/maxresdefault.jpg"
+      src={Zelda}
       alt="Third slide"
       rounded
     />
