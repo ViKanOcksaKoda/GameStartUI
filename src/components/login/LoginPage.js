@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
-import { Form, Button, FloatingLabel } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
-import Modal from "react-bootstrap/Modal";
-import { useState } from "react";
-import "./LoginPage.css";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { StatusContext } from "../context/StatusContext";
 import { UserContext } from "../context/UserContext";
 import { RoleContext } from "../context/RoleContext";
+import { Form, Button, FloatingLabel } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Modal from "react-bootstrap/Modal";
+import axios from "axios";
+import "./LoginPage.css";
+
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -30,7 +30,7 @@ const LoginPage = () => {
         setRole(response.data.role);
 
         if ((response.data.loggedIn = true)) {
-          setShow(true);
+          handleShow();
         }
       })
       .catch(() => {
@@ -97,8 +97,5 @@ const LoginPage = () => {
     </Container>
   );
 };
-
-//onHandleSubmit ska hämta data
-//onClick i button för att hämta onHandleSubmit
 
 export default LoginPage;

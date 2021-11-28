@@ -1,30 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CategoryCard from "../categorycard/CategoryCard";
 import Container from "react-bootstrap/Container";
-import "./ControllerPage.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import "./ControllerPage.css";
 
 const ControllerPage = () => {
-  const [info, setInfo] = useState([]);
+  const [data, setData] = useState([]);
   const getAllControllerData = () => {
     axios
       .get(`https://localhost:7024/api/products/categoryproducts?CategoryId=3`)
       .then((response) => {
-        const allControllerData = response.data.products;
-        console.log(allControllerData);
-        setInfo(allControllerData);
+        setData(response.data.products);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-  const displayInfo = info.map((info) => (
+  const displayData = data.map((data) => (
     <CategoryCard
-      cardTitleText={info.name}
-      infoText={info.description}
-      infoImage={info.id}
-      priceText={info.price + " €"}
-      stockNumber={info.stockBalance}
+      cardTitleText={data.name}
+      infoText={data.description}
+      infoImage={data.id}
+      priceText={data.price}
+      stockNumber={data.stockBalance}
     />
   ));
 
@@ -38,7 +35,7 @@ const ControllerPage = () => {
         <h1 className="categoryFont"> CONTROLLERS </h1>
 
         <div className="row">
-          <div className="col category-card card-padding">{displayInfo}</div>
+          <div className="col category-card card-padding">{displayData}</div>
         </div>
       </Container>
     </Container>
