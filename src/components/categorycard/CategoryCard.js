@@ -18,6 +18,7 @@ export default class CategoryCard extends Component {
             <p className="cardTitleText">{this.props.cardTitleText}</p>
             <p className="card-text">{this.props.infoText}</p>
             <p className="cardPriceText">{this.props.priceText}</p>
+            <p className="cardStockText">Antal produkter i lager: {this.props.stockNumber}</p>
             <Button
               className="submit-button mt-4"
               variant="outline-dark"
