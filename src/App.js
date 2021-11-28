@@ -19,7 +19,7 @@ function App() {
   const [status, setStatus] = useState(false);
   const [user, setUser] = useState(null);
   const [role, setRole] = useState("guest");
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState([]);
 
   return (
     <Router>
