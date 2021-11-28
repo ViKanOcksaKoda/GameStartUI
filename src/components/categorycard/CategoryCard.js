@@ -28,6 +28,7 @@ const CategoryCard = ({
     };
     axios.post(`https://localhost:7024/api/shoppingcart/item`, createCartItem)
       .then((response) => console.log(response))
+      .catch((error) => console.log(error))
   };
 
   return (
@@ -40,9 +41,9 @@ const CategoryCard = ({
         <div className="card-body">
           <p className="cardTitleText">{cardTitleText}</p>
           <p className="card-text">{infoText}</p>
-          <p className="cardPriceText">{priceText}</p>
+          <p className="cardPriceText">{priceText}:-</p>
           <p className="cardStockText">
-            Antal produkter i lager: ${stockNumber}
+            Antal produkter i lager: {stockNumber}
           </p>
           <Button
             onClick={addToCart}
