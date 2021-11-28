@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CategoryCard from '../categorycard/CategoryCard'
 import Container from 'react-bootstrap/Container';
-import "./ConsolePage.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import "./ConsolePage.css";
 
 const ConsolePage = () => {
   const [data, setData] = useState([]);
@@ -25,13 +24,13 @@ const ConsolePage = () => {
       cardTitleText={data.name}
       infoText={data.description}
       infoImage={data.id}
-      priceText={data.price + " €"}
+      priceText={data.price}
       stockNumber={data.stockBalance}
     />
   ));
 
-    return(
-      <Container className="top-container">
+  return (
+    <Container className="top-container">
       <Container fluid="lg" className="game-container">
         <h1 className="categoryFont"> CONSOLES </h1>
         <div className="row">
@@ -39,6 +38,6 @@ const ConsolePage = () => {
         </div>
       </Container>
     </Container>
-    );
+  );
 };
 export default ConsolePage;
