@@ -1,74 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import "./AdminPage.css";
-
-function OrderList(props) {
-  const orders = props.orders;
-  const listItems = orders.map((order) => (
-    <p key={order.toString()}>{order}</p>
-    ));
-  return listItems;
-}
-
-const orders = [1 , 2, 3, 4, 5];
+import OrderCard from "../ordercard/OrderCard";
+import axios from "axios";
 
 const AdminPage = () => {
-  
+  const [data, setData] = useState([]);
+
+  const getOrdersData = () => {
+    axios.get(`https://localhost:7024/api/orders/list`)
+      .then((response) => {
+        setData(response.data.orders);
+      })
+      .catch((error) => console.log(`Error: ${error}`))
+  }
+
+  useEffect(() => {
+    getOrdersData();
+  }, [])
+
+  const displayData = data.map((data) => (
+    <OrderCard
+      orderid={data.id}
+      customerid={data.userId}
+      orderdate={data.date}
+    />
+  ));
+
   return (
     <Container className="top-container">
       <Container fluid="lg" className="game-container">
         <h1 className="categoryFont"> ADMIN </h1>
-        <Container>
-          <Row>
-            <Col className="left-Colum-Style"><OrderList orders={orders} /></Col>
-            <Col><OrderList orders={orders} /></Col>
-          </Row>
-        </Container>
+        <div className="row">
+          <div className="col category-card card-padding">{displayData}</div>
+        </div>
       </Container>
     </Container>
   );
 };
 export default AdminPage;
-
-{
-  /* <Container className="top-container">
-      <Container fluid="lg" className="game-container">
-        <h1 className="categoryFont"> ADMIN </h1>
-        <button
-          onClick={() => OrderList(orders)}
-          type="button"
-          className="btn btn-primary admin-button"
-        >
-          GET ORDERS
-        </button>
-        
-        <OrderList orders={orders} />
-      </Container>
-    </Container> */
-}
-
-// export default class AdminPage extends Component {
-//   static displayName = AdminPage.name;
-
-//   constructor(props) {
-//     super(props);
-//     this.handleClick = this.handleClick.bind(this);
-//   }
-
-//   render() {
-//     const orders = [1, 2, 3, 4, 5];
-//     return (
-//       <Container className="top-container">
-//       <Container fluid="lg" className="game-container">
-//         <h1 className="categoryFont"> ADMIN </h1>
-//         <button onClick={() => OrderList(orders)} type="button" className="btn btn-primary admin-button">
-//           GET ORDERS
-//         </button>
-//         {/* <OrderList orders={orders} /> */}
-//       </Container>
-//     </Container>
-//     );
-//   }
-// }
