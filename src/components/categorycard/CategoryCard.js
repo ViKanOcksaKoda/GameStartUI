@@ -4,46 +4,65 @@ import "./CategoryCard.css";
 import { BsCart4 } from "react-icons/bs";
 import axios from "axios";
 
+const CategoryCard = ({
+  infoImage,
+  cardTitleText,
+  infoText,
+  priceText,
+  stockNumber,
+}) => {
+  const [product, setProduct] = useState();
+  const [userId, setUserId] = useState("");
+  const [productId, setProductId] = useState("");
+  const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
 
-export default class CategoryCard extends Component {
-  static displayName = CategoryCard.name;
+  const getProductData = () => {
+    axios
+      .get(`https://localhost:7024/api/products/categoryproducts`)
+      .then((response) => {
+        setProduct(response.data.products);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
 
-  render() {
-    const [userId, setUserId] = useState("");
-    const [productId, productId] = useState("");
-    const [price, setPrice] = useState("");
-    const [quantity, setQuantity] = useState("");
+  const addToCart = () => {
+    const createCartItem = {
+      userId: setUserId,
+      productId: setProductId,
+      price: setPrice,
+      quantity: setQuantity,
+    };
+    axios.post(`https://localhost:7024/api/shoppingcart/item`, createCartItem);
+  };
 
-    const addToCart = () => {
-      const createCartItem = { "userId": userId, "productId": productId, "price": price, "quantity": quantity }
-      axios.post(`https://localhost:7024/api/shoppingcart/item`, createCartItem)
-    }
-    
-
-    return (
-      <Container className="card-container">
-        <div className="card">
-          <img
-            className="card-img-top .info_card_image imageSize"
-            src={`./images/products/product_id-${this.props.infoImage}.png`}
-          />
-          <div className="card-body">
-            <p className="cardTitleText">{this.props.cardTitleText}</p>
-            <p className="card-text">{this.props.infoText}</p>
-            <p className="cardPriceText">{this.props.priceText}</p>
-            <p className="cardStockText">Antal produkter i lager: {this.props.stockNumber}</p>
-            <Button
-              onClick={addToCart}
-              className="submit-button mt-4"
-              variant="outline-dark"
-              type="submit"
-            >
-              ADD TO CART
-              <BsCart4 className="category-cart-icon" size="1.5rem" />
-            </Button>
-          </div>
+  return (
+    <Container className="card-container">
+      <div className="card">
+        <img
+          className="card-img-top .info_card_image imageSize"
+          src={`./images/products/product_id-${infoImage}.png`}
+        />
+        <div className="card-body">
+          <p className="cardTitleText">{cardTitleText}</p>
+          <p className="card-text">{infoText}</p>
+          <p className="cardPriceText">{priceText}</p>
+          <p className="cardStockText">
+            Antal produkter i lager: ${stockNumber}
+          </p>
+          <Button
+            onClick={addToCart}
+            className="submit-button mt-4"
+            variant="outline-dark"
+            type="submit"
+          >
+            ADD TO CART
+            <BsCart4 className="category-cart-icon" size="1.5rem" />
+          </Button>
         </div>
-      </Container>
-    );
-  }
-}
+      </div>
+    </Container>
+  );
+};
+
+export default CategoryCard;

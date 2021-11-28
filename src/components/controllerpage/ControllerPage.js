@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import "./ControllerPage.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BsCart4 } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 const ControllerPage = () => {
   const [info, setInfo] = useState([]);
@@ -11,9 +13,7 @@ const ControllerPage = () => {
     axios
       .get(`https://localhost:7024/api/products/categoryproducts?CategoryId=3`)
       .then((response) => {
-        const allControllerData = response.data.products;
-        console.log(allControllerData);
-        setInfo(allControllerData);
+        setInfo(response.data.products);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
