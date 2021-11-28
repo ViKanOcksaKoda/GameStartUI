@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import CategoryCard from "../categorycard/CategoryCard";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
-import "./ControllerPage.css";
 
 const ControllerPage = () => {
   const [data, setData] = useState([]);

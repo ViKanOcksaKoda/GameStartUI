@@ -36,6 +36,10 @@
   padding-top: 1rem;
 }
 
+.submit-button:active {
+  transform: translateY(2px);
+}
+
 .imageSize {
   width: 100%;
   align-self: center;

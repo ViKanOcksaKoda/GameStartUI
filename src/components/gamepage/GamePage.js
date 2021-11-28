@@ -13,6 +13,7 @@ const GamePage = () => {
         setData(response.data.products);
       })
       .catch((error) => console.log(`Error: ${error}`))
+
   }
 
   useEffect(() => {
