@@ -13,6 +13,7 @@ const GamePage = () => {
         setData(response.data.products);
       })
       .catch((error) => console.log(`Error: ${error}`))
+
   }
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const GamePage = () => {
       cardTitleText={data.name}
       infoText={data.description}
       infoImage={data.id}
-      priceText={data.price + " €"}
+      priceText={data.price}
       stockNumber={data.stockBalance}
     />
   ));

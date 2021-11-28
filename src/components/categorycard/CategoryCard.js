@@ -1,5 +1,6 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Container, Button } from "react-bootstrap";
+import { UserContext } from "../context/UserContext";
 import "./CategoryCard.css";
 import { BsCart4 } from "react-icons/bs";
 import axios from "axios";
@@ -16,24 +17,17 @@ const CategoryCard = ({
   const [productId, setProductId] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
-
-  const getProductData = () => {
-    axios
-      .get(`https://localhost:7024/api/products/categoryproducts`)
-      .then((response) => {
-        setProduct(response.data.products);
-      })
-      .catch((error) => console.error(`Error: ${error}`));
-  };
+  const { user, setUser } = useContext(UserContext);
 
   const addToCart = () => {
     const createCartItem = {
-      userId: setUserId,
-      productId: setProductId,
-      price: setPrice,
-      quantity: setQuantity,
+      "userId": user,
+      "productId": infoImage,
+      "price": priceText,
+      "quantity": 1,
     };
-    axios.post(`https://localhost:7024/api/shoppingcart/item`, createCartItem);
+    axios.post(`https://localhost:7024/api/shoppingcart/item`, createCartItem)
+      .then((response) => console.log(response))
   };
 
   return (
