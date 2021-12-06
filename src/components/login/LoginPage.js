@@ -26,7 +26,7 @@ const LoginPage = () => {
       .get(`https://localhost:7024/api/users/login/${username}/${password}`)
       .then((response) => {
         setStatus(response.data.loggedIn);
-        // setUser(response.data.userId);
+        setUser(response.data.userId);
         setRole(response.data.role);
 
         if ((response.data.loggedIn = true)) {
