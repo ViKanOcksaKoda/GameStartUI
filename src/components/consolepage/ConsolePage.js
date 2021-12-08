@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import CategoryCard from '../categorycard/CategoryCard'
 import Container from 'react-bootstrap/Container';
-import axios from "axios";
+import Service from "../../service";
 import "./ConsolePage.css";
 
 const ConsolePage = () => {
   const [data, setData] = useState([]);
 
-  const getConsolesData = () => {
-    axios.get(`https://localhost:7024/api/products/categoryproducts?CategoryId=2`)
-      .then((response) => {
-        setData(response.data.products);
+  const GetProducts = (id) => {
+    Service.GetProductsByCategory(id)
+      .then((res) => {
+        setData(res.data.products);
       })
       .catch((error) => console.log(`Error: ${error}`))
-  }
+  };
 
   useEffect(() => {
-    getConsolesData();
+    GetProducts(2);
   }, [])
 
   const displayData = data.map((data) => (
@@ -40,4 +40,5 @@ const ConsolePage = () => {
     </Container>
   );
 };
+
 export default ConsolePage;
