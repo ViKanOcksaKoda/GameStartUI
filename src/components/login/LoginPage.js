@@ -7,6 +7,7 @@ import { Form, Button, FloatingLabel } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
+import Service from "../../service";
 import "./LoginPage.css";
 
 
@@ -22,14 +23,13 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    axios
-      .get(`https://localhost:7024/api/users/login/${username}/${password}`)
+    Service.Login(username, password)
       .then((response) => {
         setStatus(response.data.loggedIn);
         setUser(response.data.userId);
         setRole(response.data.role);
 
-        if ((response.data.loggedIn = true)) {
+        if ((response.data.loggedIn == true)) {
           handleShow();
         }
       })
