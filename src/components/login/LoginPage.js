@@ -35,6 +35,9 @@ const LoginPage = () => {
       })
       .catch(() => {
         alert("You entered the wrong user information. Try again!");
+        //Testa att lägga till ytterligare en modal här
+        //handleShowFailed() som visar att någonting har blivit fel
+        //Ändra handleShow() till handleShowSuccess()
       });
   };
 
@@ -80,9 +83,9 @@ const LoginPage = () => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Welcome to GameStart!</Modal.Title>
+          <Modal.Title>Welcome to GameStart.</Modal.Title>
         </Modal.Header>
-        <Modal.Body>You successfully logged in! :)</Modal.Body>
+        <Modal.Body>You've successfully logged in!</Modal.Body>
         <Modal.Footer>
           <Button
             variant="outline-dark"
@@ -90,7 +93,7 @@ const LoginPage = () => {
               navigate("/");
             }}
           >
-            Go To Main Page
+            Return to the main page and start shopping.
           </Button>
         </Modal.Footer>
       </Modal>
