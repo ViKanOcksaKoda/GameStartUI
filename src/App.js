@@ -21,6 +21,7 @@ function App() {
   const [role, setRole] = useState("guest");
   const [cart, setCart] = useState([]);
 
+  //COOL NEW UPDATE
   return (
     <Router>
       <div className="App">
