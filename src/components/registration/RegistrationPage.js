@@ -31,13 +31,8 @@ const RegistrationPage = () => {
 
         await instance.post('https://localhost:7024/api/users', submitForm)
             .then((response) => {
-
                 setUser(response.data.user.id);
                 handleShow();
-                // if (response.request.statusText === "OK") {
-                //     setUser(response.data.user.id);
-                //     handleShow();
-                // }
             })
             .catch(function (error) {
                 if (error.response) {

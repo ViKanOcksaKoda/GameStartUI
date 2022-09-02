@@ -7,6 +7,7 @@ import { Form, Button, FloatingLabel } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
+import Service from "../../service";
 import "./LoginPage.css";
 
 
@@ -22,19 +23,21 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    axios
-      .get(`https://localhost:7024/api/users/login/${username}/${password}`)
+    Service.Login(username, password)
       .then((response) => {
         setStatus(response.data.loggedIn);
-        // setUser(response.data.userId);
+        setUser(response.data.userId);
         setRole(response.data.role);
 
-        if ((response.data.loggedIn = true)) {
+        if ((response.data.loggedIn == true)) {
           handleShow();
         }
       })
       .catch(() => {
         alert("You entered the wrong user information. Try again!");
+        //Testa att lägga till ytterligare en modal här
+        //handleShowFailed() som visar att någonting har blivit fel
+        //Ändra handleShow() till handleShowSuccess()
       });
   };
 
@@ -80,9 +83,9 @@ const LoginPage = () => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Welcome to GameStart!</Modal.Title>
+          <Modal.Title>Welcome to GameStart.</Modal.Title>
         </Modal.Header>
-        <Modal.Body>You successfully logged in! :)</Modal.Body>
+        <Modal.Body>You've successfully logged in!</Modal.Body>
         <Modal.Footer>
           <Button
             variant="outline-dark"
@@ -90,7 +93,7 @@ const LoginPage = () => {
               navigate("/");
             }}
           >
-            Go To Main Page
+            Return to the main page and start shopping.
           </Button>
         </Modal.Footer>
       </Modal>

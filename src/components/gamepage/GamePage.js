@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import CategoryCard from '../categorycard/CategoryCard'
 import Container from 'react-bootstrap/Container';
-import axios from 'axios';
+import Service from "../../service";
 import "./GamePage.css";
 
 const GamePage = () => {
   const [data, setData] = useState([]);
 
-  const getGamesData = () => {
-    axios.get(`https://localhost:7024/api/products/categoryproducts?CategoryId=1`)
-      .then((response) => {
-        setData(response.data.products);
+  const GetProducts = (id) => {
+    Service.GetProductsByCategory(id)
+      .then((res) => {
+        setData(res.data.products);
       })
       .catch((error) => console.log(`Error: ${error}`))
-
-  }
+  };
 
   useEffect(() => {
-    getGamesData();
+    GetProducts(1);
   }, [])
 
   const displayData = data.map((data) => (
@@ -41,4 +40,5 @@ const GamePage = () => {
     </Container>
   );
 };
+
 export default GamePage;
